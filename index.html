@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>protect site javascript</title>
+	<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+</head>
+<body>
+	<h1>protect site javascript with jquery</h1>
+	<script type="text/javascript">
+			 $(document).ready(function(){
+			 	$.when(
+			 		$.getScript("script.js"),
+			 		$.Deferred(function(deferred){
+			 			$( deferred.resolve );
+			 		})
+			 	).done(function(){
+			 		console.log("ok");
+			 	});
+			 });
+	</script>
+	<div id="div1"> aaa </div>
+</body>
+</html>
